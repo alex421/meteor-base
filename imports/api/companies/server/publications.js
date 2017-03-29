@@ -6,5 +6,5 @@ Meteor.publish('companies.list', () => Companies.find());
 
 Meteor.publish('companies.view', (_id) => {
   check(_id, String);
-  return Companies.find(_id);
+  return Companies.find(_id); 
 });

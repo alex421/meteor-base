@@ -3,10 +3,19 @@
 import React from 'react';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import companyEditor from '../../modules/company-editor';
+import '../library/bootstrap-datepicker.min.js';
+import '../library/bootstrap-datepicker3.min.css';
+import '../library/bootstrap-datepicker.fr.min';
 
 export default class CompanyEditor extends React.Component {
   componentDidMount() {
     companyEditor({ component: this });
+    $('[name="dateExpires"], [name="dateCreated"]').datepicker({
+        orientation: "bottom left",
+        language: "fr"
+    });
+
+
     setTimeout(() => { document.querySelector('[name="name"]').focus(); }, 0);
   }
 
@@ -44,7 +53,7 @@ export default class CompanyEditor extends React.Component {
           type="text"
           name="dateCreated"
           defaultValue={ doc && doc.dateCreated }
-          placeholder="Oh, The Places You'll Go!"
+          placeholder="Date of creation"
         />
       </FormGroup>
       <FormGroup>
@@ -53,7 +62,7 @@ export default class CompanyEditor extends React.Component {
           type="text"
           name="dateExpires"
           defaultValue={ doc && doc.dateExpires }
-          placeholder="Oh, The Places You'll Go!"
+          placeholder="Date it expires"
         />
       </FormGroup>
       <Button type="submit" bsStyle="success">

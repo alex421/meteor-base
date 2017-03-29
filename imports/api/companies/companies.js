@@ -24,7 +24,7 @@ Companies.schema = new SimpleSchema({
   },
   status: {
     type: String,
-    label: 'should be active, inactive, trial',
+    label: 'value: active, inactive, trial',
   },
   dateCreated: {
     type: String,

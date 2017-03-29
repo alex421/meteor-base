@@ -8,10 +8,14 @@ import App from '../../ui/layouts/App.js';
 import Documents from '../../ui/pages/Documents.js';
 import Companies from '../../ui/pages/Companies.js';
 import NewCompany from '../../ui/pages/NewCompany.js';
+import NewUser from '../../ui/pages/NewUser.js';
+import NewUser2 from '../../ui/pages/NewUser.js';
 import NewDocument from '../../ui/pages/NewDocument.js';
 import EditDocument from '../../ui/containers/EditDocument.js';
 import EditCompany from '../../ui/containers/EditCompany.js';
+import EditUser from '../../ui/containers/EditUser.js';
 import ViewDocument from '../../ui/containers/ViewDocument.js';
+import ViewUser from '../../ui/containers/ViewUser.js';
 import ViewCompany from '../../ui/containers/ViewCompany.js';
 import Index from '../../ui/pages/Index.js';
 import Login from '../../ui/pages/Login.js';
@@ -47,10 +51,13 @@ Meteor.startup(() => {
         <Route name="newDocument" path="/documents/new" component={ NewDocument } onEnter={ authenticate } />
         <Route name="Companies" path="/companies" component={ Companies } onEnter={ authenticate } />
         <Route name="NewCompany" path="/companies/new" component={ NewCompany } onEnter={ authenticate } />
+        <Route name="NewUser" path="/users/new/(:_idCompany)" component={ NewUser } onEnter={ authenticate } />
+        <Route name="viewUser" path="/users/:_id" component={ ViewUser } onEnter={ authenticate } />
         <Route name="editDocument" path="/documents/:_id/edit" component={ EditDocument } onEnter={ authenticate } />
         <Route name="editCompany" path="/companies/:_id/edit" component={ EditCompany } onEnter={ authenticate } />
+        <Route name="editUser" path="/users/:_id/edit" component={ EditUser } onEnter={ authenticate } />
         <Route name="viewDocument" path="/documents/:_id" component={ ViewDocument } onEnter={ authenticate } />
-        <Route name="viewDocument" path="/companies/:_id" component={ ViewCompany } onEnter={ authenticate } />
+        <Route name="viewCompany" path="/companies/:_id" component={ ViewCompany } onEnter={ authenticate } />
         <Route name="login" path="/login" component={ Login } onEnter={ userIsLogged } />
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
         <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />

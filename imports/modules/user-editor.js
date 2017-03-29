@@ -2,28 +2,34 @@
 
 import { browserHistory } from 'react-router';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { upsertDocument } from '../api/users/methods.js';
+import { upsertUser } from '../api/usersdetails/methods.js';
 import './validation.js';
 
 let component;
 
 const handleUpsert = () => {
   const { doc } = component.props;
-  const confirmation = doc && doc._id ? 'Document updated!' : 'Document added!';
+  const confirmation = doc && doc._id ? 'User updated!' : 'User added!';
   const upsert = {
-    username: document.querySelector('[name="username"]').value.trim(),
+    companyID:component.props.companyID,
+    name: document.querySelector('[name="name"]').value.trim(),
+    surname: document.querySelector('[name="surname"]').value.trim(),
+    tel: document.querySelector('[name="tel"]').value.trim(),
+    fonction: document.querySelector('[name="fonction"]').value.trim(),
+    dateCreated: document.querySelector('[name="dateCreated"]').value.trim(),
     email: document.querySelector('[name="email"]').value.trim(),
+    password: document.querySelector('[name="password"]').value.trim(),
   };
 
   if (doc && doc._id) upsert._id = doc._id;
 
-  upsertDocument.call(upsert, (error, response) => {
+  upsertUser.call(upsert, (error, response) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
     } else {
       component.documentEditorForm.reset();
       Bert.alert(confirmation, 'success');
-      browserHistory.push(`/documents/${response.insertedId || doc._id}`);
+      browserHistory.push(`/users/${response.insertedId || doc._id}`);
     }
   });
 };
@@ -31,20 +37,16 @@ const handleUpsert = () => {
 const validate = () => {
   $(component.documentEditorForm).validate({
     rules: {
-      title: {
+      name: {
         required: true,
       },
-      body: {
-        required: true,
-      },
+
     },
     messages: {
-      title: {
-        required: 'Need a title in here, Seuss.',
+      name: {
+        required: 'Insert name please.',
       },
-      body: {
-        required: 'This thneeds a body, please.',
-      },
+
     },
     submitHandler() { handleUpsert(); },
   });

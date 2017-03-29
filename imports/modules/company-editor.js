@@ -9,8 +9,6 @@ let component;
 
 
 const handleUpsert = () => {
-
-
   const { doc } = component.props;
   const confirmation = doc && doc._id ? 'Company updated!' : 'Company added!';
   const upsert = {

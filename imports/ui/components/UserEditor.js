@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import documentEditor from '../../modules/user-editor.js';
+import userEditor from '../../modules/user-editor.js';
 
-export default class DocumentEditor extends React.Component {
+export default class UserEditor extends React.Component {
   componentDidMount() {
-    documentEditor({ component: this });
-    setTimeout(() => { document.querySelector('[name="title"]').focus(); }, 0);
+    userEditor({ component: this });
+    setTimeout(() => { document.querySelector('[name="name"]').focus(); }, 0);
   }
 
   render() {
@@ -17,12 +17,48 @@ export default class DocumentEditor extends React.Component {
       onSubmit={ event => event.preventDefault() }
     >
       <FormGroup>
-        <ControlLabel>Username</ControlLabel>
+        <ControlLabel>Name</ControlLabel>
         <FormControl
           type="text"
-          name="username"
-          defaultValue={ doc && doc.username }
-          placeholder="username"
+          name="name"
+          defaultValue={ doc && doc.name }
+          placeholder="name"
+        />
+      </FormGroup>
+      <FormGroup>
+        <ControlLabel>Surname</ControlLabel>
+        <FormControl
+          type="text"
+          name="surname"
+          defaultValue={ doc && doc.surname }
+          placeholder="surname"
+        />
+      </FormGroup>
+      <FormGroup>
+        <ControlLabel>tel</ControlLabel>
+        <FormControl
+          type="text"
+          name="tel"
+          defaultValue={ doc && doc.tel }
+          placeholder="tel"
+        />
+      </FormGroup>
+      <FormGroup>
+        <ControlLabel>fonction</ControlLabel>
+        <FormControl
+          type="text"
+          name="fonction"
+          defaultValue={ doc && doc.fonction }
+          placeholder="fonction"
+        />
+      </FormGroup>
+      <FormGroup>
+        <ControlLabel>dateCreated</ControlLabel>
+        <FormControl
+          type="text"
+          name="dateCreated"
+          defaultValue={ doc && doc.dateCreated }
+          placeholder="dateCreated"
         />
       </FormGroup>
       <FormGroup>
@@ -34,14 +70,23 @@ export default class DocumentEditor extends React.Component {
           placeholder="email"
         />
       </FormGroup>
+      <FormGroup>
+        <ControlLabel>password</ControlLabel>
+        <FormControl
+          type="text"
+          name="password"
+          defaultValue={ doc && doc.password }
+          placeholder="password"
+        />
+      </FormGroup>
 
       <Button type="submit" bsStyle="success">
-        { doc && doc._id ? 'Save Changes' : 'Add Document' }
+        { doc && doc._id ? 'Save Changes' : 'Add User' }
       </Button>
     </form>);
   }
 }
 
-DocumentEditor.propTypes = {
+UserEditor.propTypes = {
   doc: React.PropTypes.object,
 };
