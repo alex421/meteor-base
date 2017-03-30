@@ -26,10 +26,13 @@ const handleUpsert = () => {
   upsertUser.call(upsert, (error, response) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
+      console.log(error)
     } else {
       component.documentEditorForm.reset();
       Bert.alert(confirmation, 'success');
-      browserHistory.push(`/users/${response.insertedId || doc._id}`);
+  //    console.log(response)
+    //  browserHistory.push(`/users/${response.insertedId || doc._id}`);
+      browserHistory.push(`/companies/${component.props.companyID}`);
     }
   });
 };

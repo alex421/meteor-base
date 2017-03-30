@@ -8,6 +8,7 @@ import Loading from '../components/Loading.js';
 const composer = (params, onData) => {
   const subscription = Meteor.subscribe('users.list');
   if (subscription.ready()) {
+
     //const users = Meteor.users.find({companyID: params.companyID}).fetch();
     const result= Meteor.users.find({"information.companyID": params.companyID}).fetch()
 
@@ -28,6 +29,9 @@ const composer = (params, onData) => {
 
     console.log("ALLusers",Meteor.users.find().fetch())
     console.log("Some users",Meteor.users.find({"information.companyID": params.companyID}).fetch())
+
+//    const users = Meteor.users.find({companyID: params.companyID}).fetch();
+
     onData(null, { users });
   }
 };

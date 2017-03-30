@@ -11,6 +11,7 @@ export default class UserEditor extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     const { doc } = this.props;
     return (<form
       ref={ form => (this.documentEditorForm = form) }

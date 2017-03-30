@@ -9,7 +9,21 @@ const composer = ({ params }, onData) => {
   const subscription = Meteor.subscribe('users.list');
 
   if (subscription.ready()) {
-    const doc = Meteor.users.findOne(params._id);
+    const result = Meteor.users.findOne(params._id);
+    
+    var doc=result.map((user)=>{
+     return {
+              "name":user.profile.name.first,
+              "surname":user.profile.name.last,
+              "tel":user.information.tel,
+              "fonction":user.information.fonction,
+              "dateCreated":user.information.dateCreated,
+              "email":user.emails[0].address,
+              "password":"xxxxx",
+              "companyID":user.information.companyID,
+              "_id":user._id
+            }
+    })
     onData(null, { doc });
   }
 };
