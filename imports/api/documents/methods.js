@@ -15,9 +15,6 @@ export const upsertDocument = new ValidatedMethod({
   },
 });
 
-
-
-
 export const removeDocument = new ValidatedMethod({
   name: 'documents.remove',
   validate: new SimpleSchema({

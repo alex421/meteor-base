@@ -9,7 +9,6 @@ const composer = (params, onData) => {
   const subscription = Meteor.subscribe('users.list');
   if (subscription.ready()) {
     const users = Meteor.users.find({companyID: params.companyID}).fetch();
-    //console.log("users",users)
     onData(null, { users });
   }
 };

@@ -1,8 +1,8 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-import { Meteor } from 'meteor/meteor';
+import {browserHistory} from 'react-router';
+import {LinkContainer} from 'react-router-bootstrap';
+import {Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import {Meteor} from 'meteor/meteor';
 
 const handleLogout = () => Meteor.logout(() => browserHistory.push('/login'));
 
@@ -13,21 +13,24 @@ const userName = () => {
 };
 
 const AuthenticatedNavigation = () => (
-  <div>
-    <Nav>
-      <LinkContainer to="/documents">
-        <NavItem eventKey={ 2 } href="/documents">Documents</NavItem>
-      </LinkContainer>
-      <LinkContainer to="/companies">
-        <NavItem eventKey={ 2 } href="/companies">Companies List</NavItem>
-      </LinkContainer>
-    </Nav>
-    <Nav pullRight>
-      <NavDropdown eventKey={ 3 } title={ userName() } id="basic-nav-dropdown">
-        <MenuItem eventKey={ 3.1 } onClick={ handleLogout }>Logout</MenuItem>
-      </NavDropdown>
-    </Nav>
-  </div>
+    <div>
+      <Nav>
+        <LinkContainer to="/documents">
+          <NavItem eventKey={ 2 } href="/documents">Documents</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/companies">
+          <NavItem eventKey={ 2 } href="/companies">Companies List</NavItem>
+        </LinkContainer>
+      </Nav>
+      <Nav pullRight>
+        <NavDropdown eventKey={ 3 } title={ userName() } id="basic-nav-dropdown">
+          <LinkContainer to="/settings">
+            <MenuItem eventKey={ 3.1 } href="/settings">Settings</MenuItem>
+          </LinkContainer>
+          <MenuItem eventKey={ 3.2 } onClick={ handleLogout }>Logout</MenuItem>
+        </NavDropdown>
+      </Nav>
+    </div>
 );
 
 export default AuthenticatedNavigation;

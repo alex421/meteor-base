@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 
-import { browserHistory } from 'react-router';
-import { Accounts } from 'meteor/accounts-base';
-import { Bert } from 'meteor/themeteorchef:bert';
+import {browserHistory} from 'react-router';
+import {Accounts} from 'meteor/accounts-base';
+import {Bert} from 'meteor/themeteorchef:bert';
 import './validation.js';
 
 let component;
@@ -65,7 +65,9 @@ const validate = () => {
         minlength: 'Use at least six characters, please.',
       },
     },
-    submitHandler() { signup(); },
+    submitHandler() {
+      signup();
+    },
   });
 };
 
