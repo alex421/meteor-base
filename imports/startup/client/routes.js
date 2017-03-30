@@ -60,7 +60,7 @@ Meteor.startup(() => {
           <Route name="viewUser" path="/users/:_id" component={ ViewUser } onEnter={ authenticate }/>
           <Route name="editDocument" path="/documents/:_id/edit" component={ EditDocument } onEnter={ authenticate }/>
           <Route name="editCompany" path="/companies/:_id/edit" component={ EditCompany } onEnter={ authenticate }/>
-          <Route name="editUser" path="/users/:_id/edit" component={ EditUser } onEnter={ authenticate }/>
+          <Route name="editUser" path="/users/:_id(/:companyID)/edit" component={ EditUser } onEnter={ authenticate }/>
           <Route name="viewDocument" path="/documents/:_id" component={ ViewDocument } onEnter={ authenticate }/>
           <Route name="viewCompany" path="/companies/:_id" component={ ViewCompany } onEnter={ authenticate }/>
           <Route name="login" path="/login" component={ Login } onEnter={ userIsLogged }/>

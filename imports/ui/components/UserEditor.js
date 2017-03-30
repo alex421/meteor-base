@@ -11,7 +11,6 @@ export default class UserEditor extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const { doc } = this.props;
     return (<form
       ref={ form => (this.documentEditorForm = form) }
@@ -22,7 +21,7 @@ export default class UserEditor extends React.Component {
         <FormControl
           type="text"
           name="name"
-          defaultValue={ doc && doc.name }
+          defaultValue={ doc && doc.profile.name.first }
           placeholder="name"
         />
       </FormGroup>
@@ -31,7 +30,7 @@ export default class UserEditor extends React.Component {
         <FormControl
           type="text"
           name="surname"
-          defaultValue={ doc && doc.surname }
+          defaultValue={ doc && doc.profile.name.last }
           placeholder="surname"
         />
       </FormGroup>
@@ -40,7 +39,7 @@ export default class UserEditor extends React.Component {
         <FormControl
           type="text"
           name="tel"
-          defaultValue={ doc && doc.tel }
+          defaultValue={ doc && doc.information.tel }
           placeholder="tel"
         />
       </FormGroup>
@@ -49,7 +48,7 @@ export default class UserEditor extends React.Component {
         <FormControl
           type="text"
           name="fonction"
-          defaultValue={ doc && doc.fonction }
+          defaultValue={ doc && doc.information.fonction }
           placeholder="fonction"
         />
       </FormGroup>
@@ -58,7 +57,7 @@ export default class UserEditor extends React.Component {
         <FormControl
           type="text"
           name="dateCreated"
-          defaultValue={ doc && doc.dateCreated }
+          defaultValue={ doc && doc.information.dateCreated }
           placeholder="dateCreated"
         />
       </FormGroup>
@@ -67,16 +66,16 @@ export default class UserEditor extends React.Component {
         <FormControl
           type="text"
           name="email"
-          defaultValue={ doc && doc.email }
+          defaultValue={ doc && doc.emails[0].address }
           placeholder="email"
         />
       </FormGroup>
       <FormGroup>
-        <ControlLabel>password</ControlLabel>
+        <ControlLabel>    { doc && doc._id ? 'Change' : '' } password</ControlLabel>
         <FormControl
-          type="text"
+          type={ doc && doc._id ? 'password' : 'text' }
           name="password"
-          defaultValue={ doc && doc.password }
+          defaultValue={ doc && "" }
           placeholder="password"
         />
       </FormGroup>

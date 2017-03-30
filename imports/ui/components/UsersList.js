@@ -7,11 +7,11 @@ const handleNav = (_id) => {
   browserHistory.push(`/users/${_id}`);
 }
 
-const handleEdit = (_id) => {
-  browserHistory.push(`/users/${_id}/edit`);
+const handleEdit = (_id,companyID) => {
+  browserHistory.push(`/users/${_id}/${companyID}/edit`);
 };
 
-const handleRemove = (_id) => {
+const handleRemove = (_id,companyID) => {
   if (confirm('Are you sure? This is permanent!')) {
     removeUser.call({ _id }, (error) => {
       if (error) {
@@ -19,14 +19,14 @@ const handleRemove = (_id) => {
         Bert.alert(error.reason, 'danger');
       } else {
         Bert.alert('User deleted!', 'success');
-        browserHistory.push('/companies');
+        browserHistory.push(`/companies/${companyID}`);
       }
     });
   }
 };
 
 
-const UsersList = ({ users }) => (
+const UsersList = ({ users, companyID }) => (
    users.length > 0 ? <ListGroup className="UsersList">
 
     {users.map(({ _id, name,surname,tel,fonction,dateCreated,email }) => (
@@ -34,8 +34,8 @@ const UsersList = ({ users }) => (
         { name } {surname} {tel} {fonction} {dateCreated} {email}
         <ButtonToolbar className="pull-right">
           <ButtonGroup bsSize="small">
-            <Button onClick={ () => handleEdit(_id) }>Edit</Button>
-            <Button onClick={ () => handleRemove(_id) } className="text-danger">Delete</Button>
+            <Button onClick={ () => handleEdit(_id,companyID) }>Edit</Button>
+            <Button onClick={ () => handleRemove(_id,companyID) } className="text-danger">Delete</Button>
           </ButtonGroup>
         </ButtonToolbar>
       </ListGroupItem>

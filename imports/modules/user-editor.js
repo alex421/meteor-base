@@ -11,7 +11,7 @@ const handleUpsert = () => {
   const { doc } = component.props;
   const confirmation = doc && doc._id ? 'User updated!' : 'User added!';
   const upsert = {
-    companyID:component.props.companyID,
+    companyID:component.props.companyID ,
     name: document.querySelector('[name="name"]').value.trim(),
     surname: document.querySelector('[name="surname"]').value.trim(),
     tel: document.querySelector('[name="tel"]').value.trim(),
@@ -43,12 +43,24 @@ const validate = () => {
       name: {
         required: true,
       },
+      tel:{
+        number: true
+      },
+      email: {
+        email: true
+      }
 
     },
     messages: {
       name: {
         required: 'Insert name please.',
       },
+      tel:{
+        number: "must be number"
+      },
+      email: {
+        email: "must be a valid email"
+      }
 
     },
     submitHandler() { handleUpsert(); },

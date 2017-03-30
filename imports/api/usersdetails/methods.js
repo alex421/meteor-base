@@ -19,27 +19,30 @@ export const upsertUser = new ValidatedMethod({
     password: { type: String, optional: true },
   }).validator(),
   run(document) {
+    const users = [{
+      email: document.email,
+      password: document.password,
+      profile: {
+        name: { first: document.name, last: document.surname },
+      },
+      information: {
+        companyID:document.companyID,
+        tel:document.tel,
+        fonction:document.fonction,
+        dateCreated:document.dateCreated,
+      },
+      roles: ['admin'],
+    }];
+
     if (document._id) {
-      var clone = Object.assign({}, document);
+      var clone = Object.assign({}, users[0]);
       delete clone._id;
+          if (Meteor.isServer) {
+      Accounts.setPassword(document._id , document.password);
+    }
       return  Meteor.users.update(document._id  ,{ $set: clone });
     }
     else {
-      const users = [{
-        email: document.email,
-        password: document.password,
-        profile: {
-          name: { first: document.name, last: document.surame },
-        },
-        information: {
-          companyID:document.companyID,
-          tel:document.tel,
-          fonction:document.fonction,
-          dateCreated:document.dateCreated,
-        },
-        roles: ['admin'],
-      }];
-
       users.forEach(({ email, password, profile, information,roles }) => {
         const userExists = Meteor.users.findOne({ 'emails.address': email });
         if (!userExists) {

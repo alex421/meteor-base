@@ -2,11 +2,11 @@ import React from 'react';
 import UserEditor from '../components/UserEditor';
 import NotFound from './NotFound';
 
-const EditUser = ({ doc }) => {
+const EditUser = ({ doc}) => {
   return doc ? (
     <div className="EditUser">
-      <h4 className="page-header">Editing "{ doc.name }"</h4>
-      <UserEditor doc={ doc }/>
+      <h4 className="page-header">Editing "{ doc.profile.name.first }"</h4>
+      <UserEditor doc={ doc } companyID= {doc.information.companyID}/>
     </div>
   ) : <NotFound />;
 };

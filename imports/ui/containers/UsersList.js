@@ -8,9 +8,9 @@ import Loading from '../components/Loading.js';
 const composer = (params, onData) => {
   const subscription = Meteor.subscribe('users.list');
   if (subscription.ready()) {
-
+    var companyID= params.companyID;
     //const users = Meteor.users.find({companyID: params.companyID}).fetch();
-    const result= Meteor.users.find({"information.companyID": params.companyID}).fetch()
+    const result= Meteor.users.find({"information.companyID": companyID}).fetch()
 
 
   var users=result.map((user)=>{
@@ -28,11 +28,12 @@ const composer = (params, onData) => {
   })
 
     console.log("ALLusers",Meteor.users.find().fetch())
-    console.log("Some users",Meteor.users.find({"information.companyID": params.companyID}).fetch())
+    console.log("Some users",Meteor.users.find({"information.companyID": companyID}).fetch())
+
 
 //    const users = Meteor.users.find({companyID: params.companyID}).fetch();
 
-    onData(null, { users });
+    onData(null, { users ,companyID });
   }
 };
 
