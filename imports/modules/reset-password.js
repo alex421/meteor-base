@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 
-import { browserHistory } from 'react-router';
-import { Accounts } from 'meteor/accounts-base';
-import { Bert } from 'meteor/themeteorchef:bert';
+import {browserHistory} from 'react-router';
+import {Accounts} from 'meteor/accounts-base';
+import {Bert} from 'meteor/themeteorchef:bert';
 import './validation.js';
 
 let component;
@@ -43,7 +43,9 @@ const validate = () => {
         equalTo: 'Hmm, your passwords don\'t match. Try again?',
       },
     },
-    submitHandler() { handleReset(); },
+    submitHandler() {
+      handleReset();
+    },
   });
 };
 

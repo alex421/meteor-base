@@ -1,15 +1,14 @@
 /* eslint-disable no-undef */
 
-import { browserHistory } from 'react-router';
-import { Bert } from 'meteor/themeteorchef:bert';
-import { upsertCompany } from '../api/companies/methods.js';
+import {browserHistory} from 'react-router';
+import {Bert} from 'meteor/themeteorchef:bert';
+import {upsertCompany} from '/imports/api/companies/methods.js';
 import './validation.js';
 
 let component;
 
-
 const handleUpsert = () => {
-  const { doc } = component.props;
+  const {doc} = component.props;
   const confirmation = doc && doc._id ? 'Company updated!' : 'Company added!';
   const upsert = {
     name: document.querySelector('[name="name"]').value.trim(),
@@ -45,7 +44,9 @@ const validate = () => {
       },
 
     },
-    submitHandler() { handleUpsert(); },
+    submitHandler() {
+      handleUpsert();
+    },
   });
 };
 

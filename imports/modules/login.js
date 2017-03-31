@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 
-import { browserHistory } from 'react-router';
-import { Meteor } from 'meteor/meteor';
-import { Bert } from 'meteor/themeteorchef:bert';
+import {browserHistory} from 'react-router';
+import {Meteor} from 'meteor/meteor';
+import {Bert} from 'meteor/themeteorchef:bert';
 import './validation.js';
 
 let component;
@@ -17,7 +17,7 @@ const login = () => {
     } else {
       Bert.alert('Logged in!', 'success');
 
-      const { location } = component.props;
+      const {location} = component.props;
       if (location.state && location.state.nextPathname) {
         browserHistory.push(location.state.nextPathname);
       } else {
@@ -47,7 +47,9 @@ const validate = () => {
         required: 'Need a password here.',
       },
     },
-    submitHandler() { login(); },
+    submitHandler() {
+      login();
+    },
   });
 };
 

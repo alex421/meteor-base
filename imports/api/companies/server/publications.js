@@ -1,10 +1,11 @@
-import { Meteor } from 'meteor/meteor';
-import { check } from 'meteor/check';
-import Companies from '../companies';
+import {Meteor} from 'meteor/meteor';
+import {check}  from 'meteor/check';
+
+import Companies from '../companies.js';
 
 Meteor.publish('companies.list', () => Companies.find());
 
 Meteor.publish('companies.view', (_id) => {
   check(_id, String);
-  return Companies.find(_id); 
+  return Companies.find(_id);
 });

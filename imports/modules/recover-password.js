@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
-import { Accounts } from 'meteor/accounts-base';
-import { Bert } from 'meteor/themeteorchef:bert';
+import {Accounts} from 'meteor/accounts-base';
+import {Bert} from 'meteor/themeteorchef:bert';
 import './validation.js';
 
 let component;
@@ -32,7 +32,9 @@ const validate = () => {
         email: 'Is this email address legit?',
       },
     },
-    submitHandler() { handleRecovery(); },
+    submitHandler() {
+      handleRecovery();
+    },
   });
 };
 

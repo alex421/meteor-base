@@ -1,4 +1,3 @@
-import {Meteor} from 'meteor/meteor';
 import React from 'react';
 import {Row, Col, FormGroup, ControlLabel, FormControl, Button} from 'react-bootstrap';
 import handleSettings from '../../modules/settings';
@@ -13,14 +12,16 @@ export default class Settings extends React.Component {
   }
 
   render() {
+    const {data} = this.props;
+
     return (
         <div className="Settings">
           <Row>
-            <Col xs={ 12 } sm={ 6 } md={ 4 }>
+            <Col xs={ 12 } sm={ 7 } md={ 5 }>
               <h4 className="page-header">Change Email</h4>
               <form ref={ form => (this.settingsForm = form) } onSubmit={ this.handleSubmit }>
 
-                <p>Your email address is currently: <strong>{this.props.email}</strong></p>
+                <p>Your email address is currently: <strong>{data.currentEmail}</strong></p>
 
                 <FormGroup>
                   <ControlLabel>New Email Address</ControlLabel>

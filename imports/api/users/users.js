@@ -1,8 +1,8 @@
 /*maybe i dont need this file */
 
-import { Mongo } from 'meteor/mongo';
-import { SimpleSchema } from 'meteor/aldeed:simple-schema';
-import { Factory } from 'meteor/dburles:factory';
+import {Mongo} from 'meteor/mongo';
+import {SimpleSchema} from 'meteor/aldeed:simple-schema';
+import {Factory} from 'meteor/dburles:factory';
 
 const UsersDetails = new Mongo.Collection('UsersDetails');
 export default UsersDetails;
@@ -36,7 +36,7 @@ UsersDetails.schema = new SimpleSchema({
     type: String,
     label: 'fonction',
   },
-  dateCreated : {
+  dateCreated: {
     type: String,
     label: 'surname',
   },

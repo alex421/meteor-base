@@ -1,17 +1,17 @@
 /* eslint-disable no-undef */
 
-import { browserHistory } from 'react-router';
-import { Bert } from 'meteor/themeteorchef:bert';
-import { upsertUser } from '../api/usersdetails/methods.js';
+import {browserHistory} from 'react-router';
+import {Bert} from 'meteor/themeteorchef:bert';
+import {upsertUser} from '/imports/api/users/methods.js';
 import './validation.js';
 
 let component;
 
 const handleUpsert = () => {
-  const { doc } = component.props;
+  const {doc} = component.props;
   const confirmation = doc && doc._id ? 'User updated!' : 'User added!';
   const upsert = {
-    companyID:component.props.companyID ,
+    companyID: component.props.companyID,
     name: document.querySelector('[name="name"]').value.trim(),
     surname: document.querySelector('[name="surname"]').value.trim(),
     tel: document.querySelector('[name="tel"]').value.trim(),
@@ -26,12 +26,9 @@ const handleUpsert = () => {
   upsertUser.call(upsert, (error, response) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
-      console.log(error)
     } else {
       component.documentEditorForm.reset();
       Bert.alert(confirmation, 'success');
-  //    console.log(response)
-    //  browserHistory.push(`/users/${response.insertedId || doc._id}`);
       browserHistory.push(`/companies/${component.props.companyID}`);
     }
   });
@@ -43,7 +40,7 @@ const validate = () => {
       name: {
         required: true,
       },
-      tel:{
+      tel: {
         number: true
       },
       email: {
@@ -55,7 +52,7 @@ const validate = () => {
       name: {
         required: 'Insert name please.',
       },
-      tel:{
+      tel: {
         number: "must be number"
       },
       email: {
@@ -63,7 +60,9 @@ const validate = () => {
       }
 
     },
-    submitHandler() { handleUpsert(); },
+    submitHandler() {
+      handleUpsert();
+    },
   });
 };
 
