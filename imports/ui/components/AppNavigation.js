@@ -10,7 +10,7 @@ const AppNavigation = ({ hasUser }) => (
   <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to="/"><img src={"/logo.png"} style={{'width':'99px',  'margin-top':'-13px'}}></img></Link>
+        <Link to="/"><img src={"/logo.png"} style={{'width':'99px',  'marginTop':'-13px'}}></img></Link>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
