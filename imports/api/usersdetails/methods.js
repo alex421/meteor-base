@@ -37,9 +37,9 @@ export const upsertUser = new ValidatedMethod({
     if (document._id) {
       var clone = Object.assign({}, users[0]);
       delete clone._id;
-          if (Meteor.isServer) {
-      Accounts.setPassword(document._id , document.password);
-    }
+      if (Meteor.isServer) {
+        Accounts.setPassword(document._id , document.password);
+      }
       return  Meteor.users.update(document._id  ,{ $set: clone });
     }
     else {

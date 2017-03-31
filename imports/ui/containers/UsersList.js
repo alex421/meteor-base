@@ -26,6 +26,7 @@ const composer = (params, onData) => {
             "_id":user._id
           }
   })
+    //const users = Meteor.users.find({companyID: params.companyID}).fetch();
 
     console.log("ALLusers",Meteor.users.find().fetch())
     console.log("Some users",Meteor.users.find({"information.companyID": companyID}).fetch())
