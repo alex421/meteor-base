@@ -98,6 +98,7 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/logging/1.1.17/web.browser/logging_cordova.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/logging/1.1.17/web.browser/logging.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/binary-heap/1.0.10/web.browser/min-max-heap.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/percolate_find-from-publication/0.1.0/web.browser/packages/percolate_find-from-publication.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/binary-heap/1.0.10/web.browser/max-heap.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/binary-heap/1.0.10/web.browser/min-heap.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/blaze/2.3.0/web.browser/dombackend.js" />
@@ -481,6 +482,7 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/logging/1.1.17/web.browser/logging_cordova.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/logging/1.1.17/web.browser/logging.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/binary-heap/1.0.10/web.browser/min-max-heap.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/percolate_find-from-publication/0.1.0/web.browser/packages/percolate_find-from-publication.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/binary-heap/1.0.10/web.browser/max-heap.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/binary-heap/1.0.10/web.browser/min-heap.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/blaze/2.3.0/web.browser/dombackend.js" />

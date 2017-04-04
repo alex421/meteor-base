@@ -3,6 +3,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Factory } from 'meteor/dburles:factory';
 
 const Companies = new Mongo.Collection('Companies');
+
 export default Companies;
 
 Companies.allow({

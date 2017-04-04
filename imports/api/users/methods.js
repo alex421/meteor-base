@@ -6,7 +6,6 @@ import {ValidatedMethod} from 'meteor/mdg:validated-method';
 import rateLimit    from '/imports/modules/rate-limit.js';
 import UsersDetails from './users';
 
-
 export const upsertUser = new ValidatedMethod({
   name: 'users.upsert',
   validate: new SimpleSchema({
@@ -79,11 +78,11 @@ export const changeEmail = new ValidatedMethod({
     newEmailAddress: {type: String}
   }).validator(),
   run(data) {
-    let userId = this.userId;
-    let oldEmailAddress = data.oldEmailAddress;
-    let newEmailAddress = data.newEmailAddress;
-
     if (Meteor.isServer) {
+      let userId = this.userId;
+      let oldEmailAddress = data.oldEmailAddress;
+      let newEmailAddress = data.newEmailAddress;
+
       Accounts.addEmail(userId, newEmailAddress);
       Accounts.removeEmail(userId, oldEmailAddress);
       return newEmailAddress;

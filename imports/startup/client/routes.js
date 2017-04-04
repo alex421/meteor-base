@@ -10,6 +10,7 @@ import App              from '/imports/ui/layouts/App.js';
 
 // Containers
 import EditCompany      from '/imports/ui/containers/EditCompany.js';
+import EditUser         from '/imports/ui/containers/EditUser.js';
 import ViewUser         from '/imports/ui/containers/ViewUser.js';
 import ViewCompany      from '/imports/ui/containers/ViewCompany.js';
 import Settings         from '/imports/ui/containers/Settings.js';
@@ -18,7 +19,6 @@ import Settings         from '/imports/ui/containers/Settings.js';
 import Companies        from '/imports/ui/pages/Companies.js';
 import NewCompany       from '/imports/ui/pages/NewCompany.js';
 import NewUser          from '/imports/ui/pages/NewUser.js';
-import EditUser         from '/imports/ui/containers/EditUser.js';
 import Index            from '/imports/ui/pages/Index.js';
 import Login            from '/imports/ui/pages/Login.js';
 import NotFound         from '/imports/ui/pages/NotFound.js';
