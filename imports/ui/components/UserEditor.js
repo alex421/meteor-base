@@ -15,7 +15,7 @@ export default class UserEditor extends React.Component {
   render() {
     const {doc} = this.props;
     return (
-        <form ref={ form => (this.documentEditorForm = form) } onSubmit={ event => event.preventDefault() }>
+        <form ref={ form => (this.userEditorForm = form) } onSubmit={ event => event.preventDefault() }>
           <FormGroup>
             <ControlLabel>Name</ControlLabel>
             <FormControl

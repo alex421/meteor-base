@@ -5,6 +5,7 @@ import {SimpleSchema} from 'meteor/aldeed:simple-schema';
 import {Factory} from 'meteor/dburles:factory';
 
 const UsersDetails = new Mongo.Collection('UsersDetails');
+
 export default UsersDetails;
 
 UsersDetails.allow({
