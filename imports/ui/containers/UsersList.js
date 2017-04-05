@@ -9,9 +9,9 @@ const composer = (params, onData) => {
   const subscription = Meteor.subscribe('users.list');
   if (subscription.ready()) {
     var companyID = params.companyID;
-    //const users = Meteor.users.find({companyID: params.companyID}).fetch();
+    const users = Meteor.users.find({}).fetch();
     const result = Meteor.users.find({"information.companyID": companyID}).fetch()
-
+console.log("ALLusers",users)
 
     var users = result.map((user) => {
       return {

@@ -33,7 +33,7 @@ export const upsertUser = new ValidatedMethod({
         fonction: document.fonction,
         dateCreated: document.dateCreated,
       },
-      roles: ['admin'],
+      roles: ['user'],
     }];
 
     if (document._id) {
